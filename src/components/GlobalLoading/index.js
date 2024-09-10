@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import styles from "./style";
-import LoadingIcon from "../../assets/image/abc.gif";
 import { withStyles } from "@mui/styles";
-import * as uiActions from "../../actions/ui";
-import { connect } from "react-redux";
-import { bindActionCreators, compose } from "redux";
+import React from "react";
+import { useSelector } from "react-redux";
+import LoadingIcon from "../../assets/image/abc.gif";
+import styles from "./style";
 
-class GlobalLoading extends Component {
-  render() {
-    const { classes, showLoading } = this.props;
+const GlobalLoading = (props) => {
+    const showLoading = useSelector((state)=>state.ui.showLoading)
+    const { classes} = props;
     let xhtml = null;
     if (showLoading) {
       xhtml = (
@@ -19,13 +17,12 @@ class GlobalLoading extends Component {
     }
     return xhtml;
   }
-}
 
-const mapStateToProps = (state) => {
-  return {
-    showLoading : state.ui.showLoading
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     showLoading : state.ui.showLoading
+//   };
+// };
 
 // const mapDispatchToProps = dispatch => {
 //     return {
@@ -33,6 +30,6 @@ const mapStateToProps = (state) => {
 //     }
 // }
 
-const withConnect = connect(mapStateToProps, null);
+// const withConnect = connect(mapStateToProps, null);
 
-export default compose(withStyles(styles), withConnect)(GlobalLoading);
+export default withStyles(styles)(GlobalLoading);
