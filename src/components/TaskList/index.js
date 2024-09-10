@@ -6,9 +6,8 @@ import styles from "./styles";
 import Box from "@mui/material/Box";
 import TaskItem from "../TaskItem";
 
-class TaskList extends Component {
-  render() {
-    const { classes,tasks,status } = this.props;
+const TaskList = (props) => {
+    const { classes,tasks,status } = props;
     return (
       <Grid2 item size={{ xs: 12, md: 4 }} key={status.value}>
         <Box sx={{ mt: 1, mb: 1 }}>
@@ -25,6 +24,6 @@ class TaskList extends Component {
       </Grid2>
     );
   }
-}
+
 
 export default withStyles(styles)(TaskList);

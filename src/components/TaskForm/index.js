@@ -5,9 +5,8 @@ import { withStyles } from "@mui/styles";
 import React, { Component } from "react";
 import styles from "./styles";
 
-class TaskForm extends Component {
-  render() {
-    const { classes } = this.props;
+const TaskForm =(props)=> {
+    const { classes } = props;
     return (
       <form>
         <Grid2 size={{ md: 12 }}>
@@ -37,6 +36,5 @@ class TaskForm extends Component {
       </form>
     );
   }
-}
 
 export default withStyles(styles)(TaskForm);
