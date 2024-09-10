@@ -1,7 +1,7 @@
-export const API_ENDPOINT = "http://localhost:5000";
+export const API_ENDPOINT = "http://localhost:6969";
 
 export const STATUSES = [
-  {
+  { 
     value: 0,
     label: "READY",
   },

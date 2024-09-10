@@ -1,30 +1,16 @@
-import React, { Component } from "react";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
-import TextField from '@mui/material/TextField';
+import { Grid2 } from "@mui/material";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { withStyles } from "@mui/styles";
+import React, { Component } from "react";
+import styles from "./styles";
 
-
-export default class TaskForm extends Component {
-
+class TaskForm extends Component {
   render() {
-    const { open, abc } = this.props;
+    const { classes } = this.props;
     return (
-      <Dialog
-        open={open}
-        onClose={abc}
-        PaperProps={{
-          component: "form",
-          onSubmit: (event) => {
-            event.preventDefault();
-            abc();
-          },
-        }}
-      >
-        <DialogTitle>Thêm mới công việc</DialogTitle>
-        <DialogContent>
+      <form>
+        <Grid2 size={{ md: 12 }}>
           <TextField
             autoFocus
             margin="dense"
@@ -33,6 +19,8 @@ export default class TaskForm extends Component {
             fullWidth
             variant="standard"
           />
+        </Grid2>
+        <Grid2>
           <TextField
             autoFocus
             margin="dense"
@@ -41,12 +29,14 @@ export default class TaskForm extends Component {
             fullWidth
             variant="standard"
           />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={abc}>Cancel</Button>
-          <Button type="submit">Submit</Button>
-        </DialogActions>
-      </Dialog>
+        </Grid2>
+        <Grid2 size={{ md: 12 }}>
+          <Button color="primary">Lưu lại</Button>
+          <Button color="danger">Huỷ bỏ</Button>
+        </Grid2>
+      </form>
     );
   }
 }
+
+export default withStyles(styles)(TaskForm);

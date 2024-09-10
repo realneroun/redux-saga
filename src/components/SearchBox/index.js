@@ -5,17 +5,16 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 
 
-class SearchBox extends Component {
-  render() {
-    const { classes } = this.props;
+const SearchBox = (props)=> {
+    const { classes, handleChange } = props;
     return (
       <div>
         <FormControl className={classes.search}>
-          <TextField size="small" variant="outlined" />
+          <TextField size="small" variant="outlined" onChange={handleChange} autoComplete="off" placeholder="Nhap tu khoa"/>
         </FormControl>
       </div>
     );
   }
-}
+
 
 export default withStyles(styles)(SearchBox);

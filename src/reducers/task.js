@@ -28,6 +28,13 @@ const reducers = (state = initialState, action) => {
         listTask: [],
       };
     }
+    case taskConstants.FETCH_TASK_SUCCESS:{
+      const {data} = action.payload
+      
+      return{...state,
+        listTask : data
+      }
+    }
     default:
       return state;
   }
